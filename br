@@ -1,0 +1,25 @@
+# THIS CODE IS AI
+
+def shift(a, b): # a, the number youre multiplying, b, how many times youre multiplying it
+    result = 0  # where answer will be stored 
+    while b > 0: # keep doing this as long as b isnt 0. the computer is going to look at b one digit at a time
+        if b & 1: # "is the last digit of b in binary a 1?" if the last digit is 1, then you add the number a to the result because the digit represents "Yes, include this part of the multiplication"
+            result += a  
+        a = a << 1 # doubles
+        b = b >> 1 # this moves b one spot to the right in binary, which is the same as dividing b by 2.
+    return result  
+
+
+when the program runs a gets left shifted (doubles) at every step so its value changes
+for ex: if a = 5 (101) then after one left shift a = 10 (binary 1010), and after another shift, a = 20 (10100)
+
+a = 5 (binary 101).
+b = 3 (binary 11).
+
+a = 5, b = 3, result = 0.
+Binary 11 Rightmost bit is 1. Add a (5) to result: result = 5. Left-shift a: a = 10. Right-shift b: b = 1.
+Binary 1 Rightmost bit is 1. Add a (10) to result: result = 15. Left-shift a: a = 20. Right-shift b: b = 0.
+
+a is the number being multiplied, and it gets scaled up (multiplied by 2) with each shift.
+
+b is the number controlling the process, and its binary form sees whether the current value of a is added to the total.
